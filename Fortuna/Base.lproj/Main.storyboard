@@ -9,34 +9,42 @@
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Fortuna" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hello iOS by Swift" textAlignment="center" id="xTw-aj-z7n">
-                                <rect key="frame" x="35" y="90" width="250" height="250"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <rect key="frame" x="62" y="90" width="250" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" id="TTm-fZ-OW2" userLabel="activeQuote" customClass="UIControl">
+                                <rect key="frame" x="0.0" y="20" width="199" height="647"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="activeClick:" destination="vXZ-lx-hvc" eventType="touchDown" id="e10-sx-0jc"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" id="MXw-EW-58O" userLabel="negativeQuote" customClass="UIControl">
+                                <rect key="frame" x="182" y="20" width="193" height="647"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="negativeClick:" destination="vXZ-lx-hvc" eventType="touchDown" id="EZ5-3i-cPL"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="3Jg-UN-oJL" appends="YES" id="Qmw-DI-UPn"/>
-                        </connections>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="quotationTextView" destination="xTw-aj-z7n" id="cod-DC-X6O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="3Jg-UN-oJL">
-                    <connections>
-                        <action selector="rootViewTapped:" destination="vXZ-lx-hvc" id="jhA-7g-kPr"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="216.5" y="326.5"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

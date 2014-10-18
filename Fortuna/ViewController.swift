@@ -13,15 +13,25 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var quotationTextView: UITextView!
     
+    @IBAction func activeClick(sender: AnyObject) {
+        
+        displayRandomQuote(1)
+    }
+    
+    @IBAction func negativeClick(sender: AnyObject) {
+        
+        displayRandomQuote(2)
+    }
+    
     @IBAction func rootViewTapped(sender: UITapGestureRecognizer) {
-        displayRandomQuote()
+        displayRandomQuote(0)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        displayRandomQuote()
+        displayRandomQuote(0)
         //debug()
     }
 
@@ -32,7 +42,7 @@ class ViewController: UIViewController {
 
     func debug(){
         println("Loading views in Swift iOS 8")
-        println("viewDidLoad quotationTextView: \(quotationTextView)")
+        //println("viewDidLoad quotationTextView: \(quotationTextView)")
     }
     
     override func awakeFromNib() {
@@ -40,12 +50,18 @@ class ViewController: UIViewController {
         super.awakeFromNib()
     }
     
-    func displayRandomQuote() {
+    func displayRandomQuote(indicator: Int) {
         var delegate = UIApplication.sharedApplication().delegate as AppDelegate
         
-        // quotes = radomly choose positiveQuotations or negativeQuotations
-        // quote = randomly choose an element from quotes
-        var quotes = delegate.positiveQuotes + delegate.negativeQuotes
+        var quotes: [String]
+        if indicator == 1 {
+            quotes = delegate.positiveQuotes
+        }else if indicator == 2 {
+            quotes = delegate.negativeQuotes
+        }else {
+            quotes = delegate.positiveQuotes
+        }
+        
         var rand = arc4random_uniform(UInt32(quotes.count))
         var quote = quotes[Int(rand)]
         
@@ -53,6 +69,6 @@ class ViewController: UIViewController {
         quotationTextView.editable = false
         quotationTextView.selectable = false
     }
-
+    
 }
 
